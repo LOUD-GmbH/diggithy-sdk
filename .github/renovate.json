@@ -3,5 +3,15 @@
     "rollbackPrs": true,
     "labels": ["dependencies"],
     "lockFileMaintenance": { "enabled": true },
-    "prCreation": "not-pending"
+    "prCreation": "not-pending",
+    "packageRules": [
+        {
+            "matchPackagePatterns": "^@types/",
+            "groupName": "Definitely typed"
+        },
+        {
+            "matchPackagePatterns": "^eslint",
+            "groupName": "ESLint"
+        }
+    ]
 }

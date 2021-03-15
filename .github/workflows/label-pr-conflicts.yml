@@ -1,0 +1,19 @@
+name: Manage PR conflict label
+on:
+    push:
+        branches:
+            - master
+            - staging
+            - dev
+    pull_request:
+        types: [opened, reopened, synchronize]
+jobs:
+    label:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: mschilde/auto-label-merge-conflicts@master
+              with:
+                  CONFLICT_LABEL_NAME: "has conflicts"
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  MAX_RETRIES: 5
+                  WAIT_MS: 5000

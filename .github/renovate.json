@@ -1,0 +1,7 @@
+{
+    "postUpdateOptions": ["npmDedupe"],
+    "rollbackPrs": true,
+    "labels": ["dependencies"],
+    "lockFileMaintenance": { "enabled": true },
+    "prCreation": "not-pending"
+}

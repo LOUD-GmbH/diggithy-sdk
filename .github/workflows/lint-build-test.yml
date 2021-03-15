@@ -3,6 +3,8 @@ on:
     push:
         branches-ignore:
             - master
+    pull_request:
+        types: [ opened, synchronize, reopened ]
 jobs:
     lint:
         runs-on: ubuntu-latest

@@ -10,8 +10,12 @@
             "groupName": "Definitely typed"
         },
         {
-            "matchPackagePatterns": "^eslint",
+            "matchPackagePatterns": [
+                "^eslint",
+                "^@typescript-eslint/"
+            ],
             "groupName": "ESLint"
         }
     ]
 }
+

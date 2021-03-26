@@ -15,6 +15,10 @@
                 "^@typescript-eslint/"
             ],
             "groupName": "ESLint"
+        },
+        {
+            "matchPackagePatterns": "jest",
+            "groupName": "Jest"
         }
     ]
 }

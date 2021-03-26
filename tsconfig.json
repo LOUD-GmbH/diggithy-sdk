@@ -8,9 +8,10 @@
         "declaration": true,
         "removeComments": true,
         "allowSyntheticDefaultImports": true,
-        "outDir": "./lib",
+        "outDir": "./dist",
         "baseUrl": "./",
         "strictPropertyInitialization": false
     },
-    "include": ["**/*.ts"]
+    "include": ["**/*.ts"],
+    "exclude": ["node_modules"]
 }

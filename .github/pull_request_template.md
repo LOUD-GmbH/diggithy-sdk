@@ -4,7 +4,7 @@
 
 <!--- Describe your changes in detail -->
 
-## Related Issue
+## Related Issues
 
 <!--- Please link to related issues here -->
 <!--- You can create a list with `- ` -->
@@ -26,6 +26,6 @@
 <!--- If you're unsure about any of these, don't hesitate to ask. -->
 
 -   [ ] I chose at least one reviewer on the right side.
-    <!-- - [ ] I have added unit and e2e tests to cover my changes. -->
-    <!-- - [ ] All new and existing tests passed locally. -->
+-   [ ] I have added unit and e2e tests to cover my changes.
+-   [ ] All new and existing tests passed locally.
 -   [ ] I have updated the documentation accordingly.

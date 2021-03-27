@@ -1,5 +1,6 @@
-node_modules
 .env
+node_modules
+lib
 
 # OS
 .DS_Store

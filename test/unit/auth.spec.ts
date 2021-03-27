@@ -1,5 +1,4 @@
-import { ApolloQueryResult } from "@apollo/client";
-import { ApolloClient } from "@apollo/client/core";
+import { ApolloQueryResult, ApolloClient } from "@apollo/client/core";
 import { Diggithy } from "../../src";
 import { errors } from "../../src/errors";
 import { warnings } from "../../src/warnings";

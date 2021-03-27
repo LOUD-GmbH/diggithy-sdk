@@ -69,5 +69,5 @@ module.exports = {
             },
         },
     ],
-    ignorePatterns: ["dist/*", "node_modules/*"],
+    ignorePatterns: ["lib/*", "node_modules/*"],
 };

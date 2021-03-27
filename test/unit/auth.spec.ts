@@ -8,17 +8,17 @@ import { auth } from "../../src/graphql/queries";
 describe(Diggithy.Auth.name, () => {
     beforeEach(() => {
         process.env.DIGGITHY_API_KEY = "someApiKey";
-        Reflect.set(Diggithy.Auth, "_instance", undefined);
+        Reflect.set(Diggithy.Auth, "instance", undefined);
     });
 
     describe("static functions", () => {
         describe("init", () => {
             it("should create instance and set apiKey from env var", () => {
-                expect(Reflect.get(Diggithy.Auth, "_instance")).toBeUndefined();
+                expect(Reflect.get(Diggithy.Auth, "instance")).toBeUndefined();
 
                 Diggithy.Auth.init();
 
-                const instance = Reflect.get(Diggithy.Auth, "_instance");
+                const instance = Reflect.get(Diggithy.Auth, "instance");
                 expect(instance).toBeTruthy();
                 expect(Reflect.get(instance, "apiKey")).toBe("someApiKey");
             });
@@ -28,7 +28,7 @@ describe(Diggithy.Auth.name, () => {
 
                 Diggithy.Auth.init("anotherApiKey");
 
-                const instance = Reflect.get(Diggithy.Auth, "_instance");
+                const instance = Reflect.get(Diggithy.Auth, "instance");
                 expect(instance).toBeTruthy();
                 expect(Reflect.get(instance, "apiKey")).toBe("anotherApiKey");
             });
@@ -50,14 +50,14 @@ describe(Diggithy.Auth.name, () => {
 
                 Diggithy.Auth.init();
 
-                const instance = Reflect.get(Diggithy.Auth, "_instance");
+                const instance = Reflect.get(Diggithy.Auth, "instance");
                 expect(Reflect.get(instance, "apiKey")).toBeUndefined();
                 expect(Diggithy.Auth.getToken).toThrowError(new Error(errors.noApiKeyConfigured));
             });
 
             it("should resolve with token if one is set", async () => {
                 Diggithy.Auth.init();
-                Reflect.set(Reflect.get(Diggithy.Auth, "_instance"), "token", "someToken");
+                Reflect.set(Reflect.get(Diggithy.Auth, "instance"), "token", "someToken");
 
                 const graphQlQuerySpy = jest.spyOn(graphql, "getGraphQlClient");
 

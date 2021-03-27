@@ -5,7 +5,7 @@ import { warnings } from "../warnings";
 
 export namespace Diggithy {
     export class Auth {
-        private static _instance: Auth;
+        private static instance: Auth;
 
         private apiKey: string | undefined;
         private token: string | undefined;
@@ -13,24 +13,24 @@ export namespace Diggithy {
         private constructor() {}
 
         private static getInstance(): Auth {
-            if (!Auth._instance) {
+            if (!Auth.instance) {
                 Auth.init();
             }
-            return Auth._instance;
+            return Auth.instance;
         }
 
         public static init(apiKey?: string): void {
-            if (!Auth._instance) {
-                Auth._instance = new Auth();
+            if (!Auth.instance) {
+                Auth.instance = new Auth();
             }
 
             if (apiKey) {
-                Auth._instance.apiKey = apiKey;
+                Auth.instance.apiKey = apiKey;
             } else {
-                Auth._instance.apiKey = process.env.DIGGITHY_API_KEY;
+                Auth.instance.apiKey = process.env.DIGGITHY_API_KEY;
             }
 
-            if (!Auth._instance.apiKey) {
+            if (!Auth.instance.apiKey) {
                 console.warn(warnings.noApiKeyConfigured);
             }
         }

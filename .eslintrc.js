@@ -58,6 +58,8 @@ module.exports = {
         "@typescript-eslint/quotes": ["error", "double", { allowTemplateLiterals: true }],
         "@typescript-eslint/indent": "off",
         "@typescript-eslint/lines-between-class-members": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/explicit-function-return-type": ["error"],
     },
     overrides: [
         {

@@ -2,6 +2,7 @@ package-lock.json
 README.md
 node_modules
 .github
+lib
 
 # OS
 .DS_Store

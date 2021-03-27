@@ -25,7 +25,7 @@
 <!--- Go over all the following points, and put an `x` in all the boxes that apply. -->
 <!--- If you're unsure about any of these, don't hesitate to ask. -->
 
--   [ ] I chose at least one reviewer on the right side.
+-   [ ] I chose at least one reviewer on the right side (choose `loud-gmbh/diggithy` if you are not sure who to pick).
 -   [ ] I have added unit and e2e tests to cover my changes.
 -   [ ] All new and existing tests passed locally.
 -   [ ] I have updated the documentation accordingly.

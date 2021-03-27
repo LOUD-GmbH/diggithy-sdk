@@ -29,15 +29,6 @@ Diggithy.Auth.init(yourApiKeyHere);
 
 `Diggithy.Auth.init()` overrides the API key that might be set using the environment variable.
 
-# Contributions
+## Contributions
 
-In order to contribute to this package, please create a PR with the proposed changes.
-
-We are using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) to facilitate CD.
-
-After running `npm install`, there are git hooks installed which help you with committing.
-Although git hooks should be installed automatically, it makes sense to ensure that with running `npm rebuild husky`.
-
-Just work as you are used to and if you want to commit, run `git commit`.
-[Commitizen](https://github.com/commitizen/cz-cli) will then ask you about the changes you made to generate a commit
-message for you.
+Contributions are very welcome! Please see [our contribution guide](CONTRIBUTING.md) for more information.

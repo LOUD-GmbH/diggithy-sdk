@@ -41,6 +41,28 @@ describe(Diggithy.Auth.name, () => {
 
                 expect(consoleSpy).toBeCalledWith(warnings.noApiKeyConfigured);
             });
+
+            it("should delete token on subsequent calls with a different API key", () => {
+                Diggithy.Auth.init();
+
+                const instance = Reflect.get(Diggithy.Auth, "instance");
+                Reflect.set(instance, "token", "someToken");
+
+                Diggithy.Auth.init("someDifferentApiKey");
+
+                expect(Reflect.get(instance, "token")).toBeUndefined();
+            });
+
+            it("should keep token on subsequent calls with equal API key", () => {
+                Diggithy.Auth.init();
+
+                const instance = Reflect.get(Diggithy.Auth, "instance");
+                Reflect.set(instance, "token", "someToken");
+
+                Diggithy.Auth.init();
+
+                expect(Reflect.get(instance, "token")).toBe("someToken");
+            });
         });
 
         describe("getToken", () => {

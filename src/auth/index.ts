@@ -24,14 +24,15 @@ export namespace Diggithy {
                 Auth.instance = new Auth();
             }
 
-            if (apiKey) {
-                Auth.instance.apiKey = apiKey;
-            } else {
-                Auth.instance.apiKey = process.env.DIGGITHY_API_KEY;
+            const newApiKey = apiKey ?? process.env.DIGGITHY_API_KEY;
+
+            if (!newApiKey) {
+                console.warn(warnings.noApiKeyConfigured);
             }
 
-            if (!Auth.instance.apiKey) {
-                console.warn(warnings.noApiKeyConfigured);
+            if (newApiKey !== Auth.instance.apiKey) {
+                Auth.instance.apiKey = newApiKey;
+                Auth.instance.token = undefined;
             }
         }
 

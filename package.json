@@ -34,7 +34,7 @@
     "devDependencies": {
         "@jest/types": "~26.6.2",
         "@types/jest": "~26.0.22",
-        "@typescript-eslint/eslint-plugin": "~4.19.0",
+        "@typescript-eslint/eslint-plugin": "~4.20.0",
         "commitizen": "~4.2.3",
         "cz-conventional-changelog": "~3.3.0",
         "dotenv": "~8.2.0",

@@ -2,7 +2,7 @@ import { ApolloQueryResult, ApolloClient } from "@apollo/client/core";
 import { Diggithy } from "../../src";
 import { errors } from "../../src/errors";
 import { warnings } from "../../src/warnings";
-import * as graphql from "../../src/graphql";
+import * as graphQlClient from "../../src/graphql/graphQlClient";
 import { auth } from "../../src/graphql/queries";
 
 describe(Diggithy.Auth.name, () => {
@@ -81,7 +81,7 @@ describe(Diggithy.Auth.name, () => {
                 Diggithy.Auth.init();
                 Reflect.set(Reflect.get(Diggithy.Auth, "instance"), "token", "someToken");
 
-                const graphQlQuerySpy = jest.spyOn(graphql, "getGraphQlClient");
+                const graphQlQuerySpy = jest.spyOn(graphQlClient, "getGraphQlClient");
 
                 await expect(Diggithy.Auth.getToken()).resolves.toBe("someToken");
 
@@ -99,7 +99,7 @@ describe(Diggithy.Auth.name, () => {
                     },
                 } as ApolloQueryResult<any>);
 
-                jest.spyOn(graphql, "getGraphQlClient").mockReturnValue(({
+                jest.spyOn(graphQlClient, "getGraphQlClient").mockReturnValue(({
                     query: graphQlQuerySpy,
                 } as unknown) as ApolloClient<any>);
 
@@ -116,7 +116,7 @@ describe(Diggithy.Auth.name, () => {
             it("should reject with GraphQL error", () => {
                 Diggithy.Auth.init();
 
-                jest.spyOn(graphql, "getGraphQlClient").mockReturnValue(({
+                jest.spyOn(graphQlClient, "getGraphQlClient").mockReturnValue(({
                     query: jest.fn().mockResolvedValue({
                         error: {
                             message: "Something went wrong.",
@@ -130,7 +130,7 @@ describe(Diggithy.Auth.name, () => {
             it("should reject if no token returned", () => {
                 Diggithy.Auth.init();
 
-                jest.spyOn(graphql, "getGraphQlClient").mockReturnValue(({
+                jest.spyOn(graphQlClient, "getGraphQlClient").mockReturnValue(({
                     query: jest.fn().mockResolvedValue({} as ApolloQueryResult<any>),
                 } as unknown) as ApolloClient<any>);
 

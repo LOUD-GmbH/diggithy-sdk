@@ -5,6 +5,7 @@
     "labels": ["dependencies"],
     "lockFileMaintenance": { "enabled": true },
     "prCreation": "not-pending",
+    "reviewers": ["schw4rzlicht"],
     "packageRules": [
         {
             "matchPackagePatterns": "^@types/",

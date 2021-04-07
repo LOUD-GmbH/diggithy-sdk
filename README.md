@@ -24,10 +24,26 @@ When importing the SDK it will automatically initialize using `DIGGITHY_API_KEY`
 If you prefer not to use environment variables as described above, you can manually initialize the SDK like so:
 
 ```typescript
+import { Diggithy } from "@diggithy/sdk"
+
 Diggithy.Auth.init(yourApiKeyHere);
 ```
 
 `Diggithy.Auth.init()` overrides the API key that might be set using the environment variable.
+
+### Managing tickets
+
+#### Creating tickets
+
+Creating `amount` tickets works like this:
+
+```typescript
+import { Diggithy } from "@diggithy/sdk"
+
+Diggithy.Tickets.createTickets(amount);
+```
+
+The call will return the UUIDs of the created tickets.
 
 ## Contributions
 

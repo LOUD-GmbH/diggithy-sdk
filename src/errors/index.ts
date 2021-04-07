@@ -3,4 +3,5 @@ export const errors = {
     noTokenReturned: "Authentication failed: no token returned from API.",
     noTicketsReturned: "Unknown error: no tickets returned from API.",
     mutationThrewMultipleErrors: "Unknown errors: GraphQL mutation returned one or more errors.",
+    unexpectedApiResponse: "API response was unexpected.",
 };

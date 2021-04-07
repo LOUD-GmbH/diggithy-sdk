@@ -1,6 +1,6 @@
 import { Diggithy } from "../../src";
 import * as authenticatedGraphQlClient from "../../src/graphql/authenticatedGraphQlClient";
-import { createTickets } from "../../src/graphql/mutations";
+import { createTickets, deleteTickets } from "../../src/graphql/mutations";
 import { errors } from "../../src/errors";
 
 describe(Diggithy.Tickets.name, () => {
@@ -66,6 +66,66 @@ describe(Diggithy.Tickets.name, () => {
                     },
                 });
             });
+        });
+
+        describe("deleteTickets", () => {
+            it("should resolve with true if tickets were deleted", async () => {
+                const graphQlClientMock = {
+                    mutate: jest.fn().mockResolvedValue({ data: { deleteTickets: true } }),
+                };
+
+                getGraphQlClientSpy.mockReturnValue(graphQlClientMock);
+
+                await expect(Diggithy.Tickets.deleteTickets(["anExistingTicketUuid"])).resolves.toEqual(true);
+                expect(getGraphQlClientSpy).toBeCalled();
+                expect(graphQlClientMock.mutate).toBeCalledWith({
+                    mutation: deleteTickets,
+                    variables: {
+                        ticketUuids: ["anExistingTicketUuid"],
+                    },
+                });
+            });
+
+            it("should resolve with false if tickets were not deleted", async () => {
+                const graphQlClientMock = {
+                    mutate: jest.fn().mockResolvedValue({ data: { deleteTickets: false } }),
+                };
+
+                getGraphQlClientSpy.mockReturnValue(graphQlClientMock);
+
+                await expect(Diggithy.Tickets.deleteTickets(["aNonExistingTicketUuid"])).resolves.toEqual(false);
+                expect(getGraphQlClientSpy).toBeCalled();
+                expect(graphQlClientMock.mutate).toBeCalledWith({
+                    mutation: deleteTickets,
+                    variables: {
+                        ticketUuids: ["aNonExistingTicketUuid"],
+                    },
+                });
+            });
+
+            it("should reject with GraphQL errors", async () => {
+                const graphQlClientMock = {
+                    mutate: jest.fn().mockResolvedValue({
+                        errors: [],
+                    }),
+                };
+
+                getGraphQlClientSpy.mockReturnValue(graphQlClientMock);
+
+                await expect(Diggithy.Tickets.deleteTickets(["SchroedingersTicketUuid"])).rejects.toEqual(
+                    new Error(errors.mutationThrewMultipleErrors),
+                );
+                expect(getGraphQlClientSpy).toBeCalled();
+                expect(graphQlClientMock.mutate).toBeCalledWith({
+                    mutation: deleteTickets,
+                    variables: {
+                        ticketUuids: ["SchroedingersTicketUuid"],
+                    },
+                });
+            });
+
+            it("should resolve with false if ticketUuids are empty", () =>
+                expect(Diggithy.Tickets.deleteTickets([])).resolves.toBe(false));
         });
     });
 });

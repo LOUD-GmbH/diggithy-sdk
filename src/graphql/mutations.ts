@@ -5,3 +5,9 @@ export const createTickets = gql`
         createTickets(amount: $amount)
     }
 `;
+
+export const deleteTickets = gql`
+    mutation deleteTickets($ticketUuids: [ID]!) {
+        deleteTickets(ticketUuids: $ticketUuids)
+    }
+`;

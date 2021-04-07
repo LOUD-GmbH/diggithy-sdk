@@ -13,4 +13,9 @@ describe(Diggithy.Tickets.name, () => {
 
         return promise.then((result) => expect(result.length).toBe(3));
     });
+
+    it("should resolve with true", () =>
+        Diggithy.Tickets.createTickets(3).then((tickets) =>
+            expect(Diggithy.Tickets.deleteTickets(tickets)).resolves.toBe(true),
+        ));
 });

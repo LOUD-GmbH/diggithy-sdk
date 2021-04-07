@@ -43,7 +43,19 @@ import { Diggithy } from "@diggithy/sdk"
 Diggithy.Tickets.createTickets(amount);
 ```
 
-The call will return the UUIDs of the created tickets.
+The call will return a promise that resolves with a list of the UUIDs of the created tickets.
+
+#### Deleteing tickets
+
+Deleting existing tickets works like this:
+
+```typescript
+import { Diggithy } from "@diggithy/sdk"
+
+Diggithy.Tickets.deleteTickets(["ticketUuid1", "ticketUuid2"]);
+```
+
+The call will return a promise that resolves with `true` if at least one of the tickets was deleted successfully and with `false` if no ticket was deleted or the list was empty.
 
 ## Contributions
 

@@ -53,12 +53,12 @@ export class Auth {
             })
             .then((result) => {
                 if (result.error) throw new Error(result.error.message);
-                if (result.data?.auth?.token) {
-                    instance.token = result.data.auth.token;
-                    return result.data.auth.token;
+                if (!result.data?.auth?.token) {
+                    throw new Error(errors.noTokenReturned);
                 }
 
-                throw new Error(errors.noTokenReturned);
+                instance.token = result.data.auth.token;
+                return result.data.auth.token;
             });
     }
 }

@@ -17,11 +17,11 @@ export class Tickets {
             })
             .then((result) => {
                 if (result.errors) throw new Error(errors.mutationThrewMultipleErrors);
-                if (result.data?.createTickets) {
-                    return result.data.createTickets;
+                if (!result.data?.createTickets) {
+                    throw new Error(errors.noTicketsReturned);
                 }
 
-                throw new Error(errors.noTicketsReturned);
+                return result.data.createTickets;
             });
     }
 }

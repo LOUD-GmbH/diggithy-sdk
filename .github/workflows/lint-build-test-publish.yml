@@ -101,7 +101,7 @@ jobs:
                       ${{ runner.os }}-${{ env.cache-name }}-
                       ${{ runner.os }}-
             - uses: actions/download-artifact@v2
-            - run: sudo npm install -g semantic-release
+            - run: sudo npm install -g semantic-release is-ci
             - name: Release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

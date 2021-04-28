@@ -45,6 +45,8 @@ Diggithy.Tickets.createTickets(amount);
 
 The call will return a promise that resolves with a list of the UUIDs of the created tickets.
 
+Users can then log in with their tickets when they navigate to `https://<yourDiggithyInstance>/ticket/<ticketUuid>`.
+
 #### Deleteing tickets
 
 Deleting existing tickets works like this:

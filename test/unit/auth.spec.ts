@@ -99,9 +99,9 @@ describe(Diggithy.Auth.name, () => {
                     },
                 } as ApolloQueryResult<any>);
 
-                jest.spyOn(graphQlClient, "getGraphQlClient").mockReturnValue(({
+                jest.spyOn(graphQlClient, "getGraphQlClient").mockReturnValue({
                     query: graphQlQuerySpy,
-                } as unknown) as ApolloClient<any>);
+                } as unknown as ApolloClient<any>);
 
                 await expect(Diggithy.Auth.getToken()).resolves.toBe("someToken");
 
@@ -116,13 +116,13 @@ describe(Diggithy.Auth.name, () => {
             it("should reject with GraphQL error", () => {
                 Diggithy.Auth.init();
 
-                jest.spyOn(graphQlClient, "getGraphQlClient").mockReturnValue(({
+                jest.spyOn(graphQlClient, "getGraphQlClient").mockReturnValue({
                     query: jest.fn().mockResolvedValue({
                         error: {
                             message: "Something went wrong.",
                         },
                     } as ApolloQueryResult<any>),
-                } as unknown) as ApolloClient<any>);
+                } as unknown as ApolloClient<any>);
 
                 return expect(Diggithy.Auth.getToken()).rejects.toEqual(new Error("Something went wrong."));
             });
@@ -130,9 +130,9 @@ describe(Diggithy.Auth.name, () => {
             it("should reject if no token returned", () => {
                 Diggithy.Auth.init();
 
-                jest.spyOn(graphQlClient, "getGraphQlClient").mockReturnValue(({
+                jest.spyOn(graphQlClient, "getGraphQlClient").mockReturnValue({
                     query: jest.fn().mockResolvedValue({} as ApolloQueryResult<any>),
-                } as unknown) as ApolloClient<any>);
+                } as unknown as ApolloClient<any>);
 
                 return expect(Diggithy.Auth.getToken()).rejects.toEqual(new Error(errors.noTokenReturned));
             });

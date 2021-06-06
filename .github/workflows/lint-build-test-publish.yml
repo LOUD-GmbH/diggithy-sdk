@@ -83,7 +83,7 @@ jobs:
               uses: chrnorm/deployment-action@releases/v1
               id: deployment
               with:
-                  environment: Github Packages
+                  environment: NPM
                   initial_status: in_progress
                   token: ${{ github.token }}
             - uses: actions/checkout@v2

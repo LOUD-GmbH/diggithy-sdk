@@ -1,27 +1,41 @@
 {
-    "baseBranches": ["dev"],
-    "postUpdateOptions": ["npmDedupe"],
-    "rollbackPrs": true,
-    "labels": ["dependencies"],
-    "lockFileMaintenance": { "enabled": true },
-    "prCreation": "not-pending",
-    "reviewers": ["schw4rzlicht"],
-    "packageRules": [
-        {
-            "matchPackagePatterns": "^@types/",
-            "groupName": "Definitely typed"
-        },
-        {
-            "matchPackagePatterns": [
-                "^eslint",
-                "^@typescript-eslint/"
-            ],
-            "groupName": "ESLint"
-        },
-        {
-            "matchPackagePatterns": "jest",
-            "groupName": "Jest"
-        }
-    ]
+  "baseBranches": [
+    "dev"
+  ],
+  "postUpdateOptions": [
+    "npmDedupe"
+  ],
+  "rollbackPrs": true,
+  "labels": [
+    "dependencies"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "prCreation": "not-pending",
+  "reviewers": [
+    "schw4rzlicht"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": "^@types/",
+      "groupName": "Definitely typed",
+      "automerge": true
+    },
+    {
+      "matchPackagePatterns": [
+        "^eslint",
+        "^@typescript-eslint/"
+      ],
+      "groupName": "ESLint",
+      "automerge": true
+    },
+    {
+      "matchPackagePatterns": "jest",
+      "groupName": "Jest",
+      "automerge": true
+    }
+  ]
 }
 

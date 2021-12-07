@@ -29,7 +29,7 @@
     "dependencies": {
         "@apollo/client": "~3.5.0",
         "cross-fetch": "~3.1.2",
-        "graphql": "~15.7.0"
+        "graphql": "~15.8.0"
     },
     "devDependencies": {
         "@jest/types": "~27.4.0",

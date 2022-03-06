@@ -100,7 +100,7 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-${{ env.cache-name }}-
                       ${{ runner.os }}-
-            - uses: actions/download-artifact@v2
+            - uses: actions/download-artifact@v3
             - run: sudo npm install -g semantic-release is-ci
             - name: Release
               env:

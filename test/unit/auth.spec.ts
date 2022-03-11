@@ -5,7 +5,7 @@ import { warnings } from "../../src/warnings";
 import * as graphQlClient from "../../src/graphql/graphQlClient";
 import { auth } from "../../src/graphql/queries";
 
-describe(Diggithy.Auth.name, () => {
+describe("Auth", () => {
     beforeEach(() => {
         process.env.DIGGITHY_API_KEY = "someApiKey";
         Reflect.set(Diggithy.Auth, "instance", undefined);
@@ -62,6 +62,12 @@ describe(Diggithy.Auth.name, () => {
                 Diggithy.Auth.init();
 
                 expect(Reflect.get(instance, "token")).toBe("someToken");
+            });
+
+            it("should throw if API key is not a string", () => {
+                expect(() => Diggithy.Auth.init(4 as unknown as string)).toThrowError(
+                    new Error(`"apiKey" must be a string`),
+                );
             });
         });
 

@@ -1,3 +1,4 @@
+import Joi = require("joi");
 import { errors } from "../errors";
 import { getGraphQlClient } from "../graphql/graphQlClient";
 import { auth } from "../graphql/queries";
@@ -19,6 +20,8 @@ export class Auth {
     }
 
     public static init(apiKey?: string): void {
+        apiKey = Joi.attempt(apiKey, Joi.string().optional().label("apiKey"));
+
         if (!Auth.instance) {
             Auth.instance = new Auth();
         }

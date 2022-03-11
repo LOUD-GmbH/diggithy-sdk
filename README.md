@@ -47,7 +47,7 @@ The call will return a promise that resolves with a list of the UUIDs of the cre
 
 Users can then log in with their tickets when they navigate to `https://<yourDiggithyInstance>/ticket/<ticketUuid>`.
 
-#### Deleteing tickets
+#### Deleting tickets
 
 Deleting existing tickets works like this:
 

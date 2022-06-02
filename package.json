@@ -33,7 +33,7 @@
         "joi": "~17.6.0"
     },
     "devDependencies": {
-        "@faker-js/faker": "~6.3.0",
+        "@faker-js/faker": "~7.1.0",
         "@jest/types": "~28.1.0",
         "@types/jest": "~28.1.0",
         "@typescript-eslint/eslint-plugin": "~5.23.0",

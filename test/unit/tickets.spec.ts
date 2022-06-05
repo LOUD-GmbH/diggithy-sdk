@@ -1,4 +1,4 @@
-import faker from "@faker-js/faker";
+import { faker } from "@faker-js/faker";
 import { Diggithy } from "../../src";
 import * as authenticatedGraphQlClient from "../../src/graphql/authenticatedGraphQlClient";
 import { createTickets, deleteTickets } from "../../src/graphql/mutations";

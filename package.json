@@ -27,7 +27,7 @@
         "prepare": "is-ci || husky install"
     },
     "dependencies": {
-        "@apollo/client": "~3.7.0",
+        "@apollo/client": "~3.11.0",
         "cross-fetch": "~4.0.0",
         "graphql": "~16.7.0",
         "joi": "17.9.2"

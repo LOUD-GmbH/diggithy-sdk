@@ -30,7 +30,7 @@
         "@apollo/client": "~3.7.0",
         "cross-fetch": "~4.0.0",
         "graphql": "~16.7.0",
-        "joi": "17.9.2"
+        "joi": "17.13.4"
     },
     "devDependencies": {
         "@faker-js/faker": "~8.0.0",
